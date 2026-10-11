@@ -1,0 +1,17 @@
+OpenInstinct — CrewAI edition.
+
+I built an experimental AI assistant you can text through iMessage, inspired by Merit Systems' original OpenInstinct project. This is an independent implementation using a different stack.
+
+It keeps conversation history and saved notes, uses connected Gmail and GitHub tools, researches public web pages, and follows up with reminders and scheduled briefings.
+
+The stack: CrewAI + OpenAI GPT-6.1 Sol for the agent, Sendblue for messaging, FastAPI for webhooks, Supabase/PostgreSQL for durable state, Composio MCP for account tools, and Browserbase + Playwright for browser research.
+
+The proactive part is backed by saved schedules: a Python scheduler queues due work in Supabase, then the worker generates a response and sends it through Sendblue.
+
+Each sender has a separate workspace and connects their own accounts. The Render deployment blueprint is prepared; the current pilot runs locally.
+
+Experimental. Not intended for production use.
+
+Original inspiration: https://github.com/Merit-Systems/OpenInstinct
+
+#CrewAI #AIagents #iMessage #Supabase #BuildInPublic

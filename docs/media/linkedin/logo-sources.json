@@ -1,0 +1,125 @@
+{
+  "retrieved_on": "2026-10-07",
+  "notes": "Brand artwork is embedded in the self-contained SVG at its original aspect ratio. Apple Messages is exported from the local application icon. Render uses its website fill-current CSS, resolved to black for standalone rendering. Colors and shapes are not redrawn. GitHub Invertocat identifies GitHub and its Actions CI tooling. Logos belong to their respective owners and identify tools used or prepared for this implementation.",
+  "logos": [
+    {
+      "file": "logos/messages.png",
+      "owner": "Apple",
+      "official_page": "Apple Messages application",
+      "source": "/System/Applications/Messages.app/Contents/Resources/AppIcon.icns",
+      "sha256": "28bcaae2ec6b696f2d58ea75ab11226c8b2b64ffe04b88ffb0b89e4c937e0c09"
+    },
+    {
+      "file": "logos/sendblue.svg",
+      "owner": "Sendblue",
+      "official_page": "https://www.sendblue.com/?view=agent",
+      "source": "https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/69b3b6879e13584d9e95082e_logo-new.svg",
+      "sha256": "9313eca5c0228346a8c905da00614a334c8fdbc05646c61d2d4b2a76a8265cdc"
+    },
+    {
+      "file": "logos/fastapi.png",
+      "owner": "FastAPI",
+      "official_page": "https://fastapi.tiangolo.com",
+      "source": "https://fastapi.tiangolo.com/img/favicon.png",
+      "sha256": "d16f72cf5a2773eba499cc7f3db1923c6f5f73de990f739e3a05806aafec15b7"
+    },
+    {
+      "file": "logos/openai-official.svg",
+      "owner": "OpenAI",
+      "official_page": "https://openai.com/brand/",
+      "source": "https://developers.openai.com/favicon.svg",
+      "sha256": "8e1b976ba47e927ac2928303fd5362fcadfefd68743506510596f107df676e58"
+    },
+    {
+      "file": "logos/crewai-wordmark.svg",
+      "owner": "CrewAI",
+      "official_page": "https://crewai.com/",
+      "source": "https://crewai.com/ (inline website wordmark SVG)",
+      "sha256": "67983c8744125e67c6860d7342ae1fa3f47fc0e7d52d47bd4c085e3a9861e0bd"
+    },
+    {
+      "file": "logos/supabase.svg",
+      "owner": "Supabase",
+      "official_page": "https://supabase.com/brand-assets",
+      "source": "https://supabase.com/dashboard/img/supabase-logo.svg",
+      "sha256": "e4845a35f37d7b05435faccddde36bacadd64b27d29a08d4d0944a5934c172e1"
+    },
+    {
+      "file": "logos/composio.svg",
+      "owner": "Composio",
+      "official_page": "https://composio.dev",
+      "source": "https://composio.dev/logos/composio-full-black.svg",
+      "sha256": "15a0fb8c7f8d165d84f56790b73aa59c5ad78baf13ef69aa37ce758f260dcb33"
+    },
+    {
+      "file": "logos/gmail.svg",
+      "owner": "Google",
+      "official_page": "https://workspace.google.com/products/gmail/",
+      "source": "https://www.gstatic.com/images/branding/productlogos/gmail_2026/v2/web/192px.svg",
+      "sha256": "0a242131424b796a26247a8edd41d66fa294da6d177897526a19b7e81aedfdb8"
+    },
+    {
+      "file": "logos/github.svg",
+      "owner": "GitHub",
+      "official_page": "https://github.com/logos",
+      "source": "https://brand.github.com/GitHub_Logos.zip#GitHub Logos/SVG/GitHub_Invertocat_Black.svg",
+      "sha256": "693d7abe6f899646cc2e96856723b45e95f71885a54910b2749f6decdf7e1ee1"
+    },
+    {
+      "file": "logos/browserbase.svg",
+      "owner": "Browserbase",
+      "official_page": "https://www.browserbase.com",
+      "source": "https://www.browserbase.com/favicon.svg",
+      "sha256": "32e32931a1c1d6b4c8f0f073ed5bfa7df5e4141eaf4174cba7dca5753917dbfd"
+    },
+    {
+      "file": "logos/playwright.svg",
+      "owner": "Microsoft / Playwright",
+      "official_page": "https://playwright.dev",
+      "source": "https://playwright.dev/img/playwright-logo.svg",
+      "sha256": "6b0a4367bdeab10995bc239278f04c68c10e48adbec15e799e01909a0d66dcb9"
+    },
+    {
+      "file": "logos/python-icon.svg",
+      "owner": "Python Software Foundation",
+      "official_page": "https://www.python.org/community/logos/",
+      "source": "https://s3.dualstack.us-east-2.amazonaws.com/pythondotorg-assets/media/files/python-logo-only.svg",
+      "sha256": "baec8662a1461c2cacc326b54d2727cb2f1ce07ba02d00f5b826d035104f649f"
+    },
+    {
+      "file": "logos/uv.svg",
+      "owner": "Astral",
+      "official_page": "https://docs.astral.sh/uv/",
+      "source": "https://docs.astral.sh/uv/assets/logo-letter.svg",
+      "sha256": "fc5aeabf925cbdaba99f4e86635eeef2d47a5ecd715d7994490ef9082fd12bfb"
+    },
+    {
+      "file": "logos/ngrok.svg",
+      "owner": "ngrok",
+      "official_page": "https://ngrok.com/brand",
+      "source": "https://ngrok.com/assets/brand/ngrok/svg/ngrok-logo-dark.svg",
+      "sha256": "b52e3deba3ffc5946270e7d6b29a2c925cad55d427046068476ac8e2a9197f87"
+    },
+    {
+      "file": "logos/docker.svg",
+      "owner": "Docker",
+      "official_page": "https://www.docker.com/company/newsroom/media-resources/",
+      "source": "https://www.docker.com/static/Docker-Logos-1.zip#docker-logos/SVG/docker-mark-ocean-blue.svg",
+      "sha256": "0fd7f9164de13672bb1708ac7cc401ed439eb938ffa7358d5cb278e107904687"
+    },
+    {
+      "file": "logos/pytest.png",
+      "owner": "pytest contributors",
+      "official_page": "https://docs.pytest.org/en/stable/",
+      "source": "https://docs.pytest.org/en/stable/_static/pytest1.png",
+      "sha256": "15c1318eee98374152592a9442e9c00ff508bad9321208e2b9a81689266a4c91"
+    },
+    {
+      "file": "logos/render-standalone.svg",
+      "owner": "Render",
+      "official_page": "https://render.com",
+      "source": "https://render.com (inline header SVG; fill-current CSS resolved)",
+      "sha256": "88e8cd7673b699b9b9f9b684a10e4cb872696be16646437decbbaace81582a42"
+    }
+  ]
+}

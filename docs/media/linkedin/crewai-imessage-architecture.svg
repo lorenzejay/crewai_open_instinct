@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350" role="img" aria-labelledby="title desc">
+<title id="title">CrewAI iMessage agent architecture</title>
+<desc id="desc">Text messages enter through Sendblue and FastAPI, are persisted in Supabase PostgreSQL, and are processed by a CrewAI worker using OpenAI. Replies return through Sendblue. A Python scheduler queues reminders and briefings from saved schedules. Optional Gmail and GitHub accounts connect through Composio MCP. Browserbase and Playwright support public web research. The project is experimental; the Render deployment blueprint is prepared but hosting is not live.</desc>
+<defs><pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0V36" fill="none" stroke="#cad5c7" stroke-width="0.65" opacity="0.27"/></pattern><marker id="arrow" viewBox="0 0 10 10" refX="8.7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#064e3b" stroke-width="1.6"/></marker><marker id="backArrow" viewBox="0 0 10 10" refX="8.7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#064e3b" stroke-width="1.6"/></marker></defs>
+<rect x="0" y="0" width="1080" height="1350" rx="0" fill="#fbfbf7"/>
+<rect x="0" y="315" width="1080" height="823" rx="0" fill="url(#grid)"/>
+<text x="64" y="61" fill="#064e3b" font-family="Courier New" font-size="18" font-weight="600" text-anchor="start" letter-spacing="1.2">CREWAI iMESSAGE AGENT</text>
+<rect x="808" y="36" width="208" height="38" rx="3" fill="#f3eee4" stroke="#ddd0bc" stroke-width="1.5"/>
+<circle cx="829" cy="55" r="4" fill="#a05e3b"/>
+<text x="847" y="61" fill="#a05e3b" font-family="Courier New" font-size="16" font-weight="600" text-anchor="start" letter-spacing="0.8">EXPERIMENTAL</text>
+<text x="60" y="150" fill="#052e24" font-family="Georgia" font-size="76" font-weight="400" text-anchor="start">Your assistant,</text>
+<text x="60" y="229" fill="#064e3b" font-family="Georgia" font-size="76" font-weight="400" text-anchor="start">in iMessage.</text>
+<text x="64" y="276" fill="#50675b" font-family="Arial" font-size="25" font-weight="400" text-anchor="start">Conversation, saved notes, and proactive follow-through.</text>
+<path d="M64 308H1016" fill="none" stroke="#cad5c7" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="64" y="338" width="952" height="68" rx="8" fill="#edf3e7" stroke="#d3dfc9" stroke-width="1.5"/>
+<path d="M87 361h19v14h-10l-5 5v-5h-4z" fill="none" stroke="#064e3b" stroke-width="1.7" stroke-linejoin="round"/>
+<text x="123" y="381" fill="#052e24" font-family="Arial" font-size="25" font-weight="400" text-anchor="start">“In 5 minutes, brief me on the PRs I should review.”</text>
+<text x="64" y="446" fill="#50675b" font-family="Courier New" font-size="15" font-weight="600" text-anchor="start" letter-spacing="1">THE CONVERSATION</text>
+<path d="M316 520H410" fill="none" stroke="#064e3b" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<path d="M662 520H764" fill="none" stroke="#064e3b" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="64" y="470" width="252" height="112" rx="6" fill="#fbfbf7" stroke="#cad5c7" stroke-width="1.5"/>
+<text x="86" y="497" fill="#50675b" font-family="Courier New" font-size="14" font-weight="600" text-anchor="start" letter-spacing="1.2">YOU</text>
+<text x="86" y="537" fill="#052e24" font-family="Arial" font-size="29" font-weight="600" text-anchor="start">iMessage</text>
+<text x="86" y="568" fill="#50675b" font-family="Arial" font-size="20" font-weight="400" text-anchor="start">Text the agent</text>
+<rect x="410" y="470" width="252" height="112" rx="6" fill="#fbfbf7" stroke="#cad5c7" stroke-width="1.5"/>
+<text x="432" y="497" fill="#50675b" font-family="Courier New" font-size="14" font-weight="600" text-anchor="start" letter-spacing="1.2">MESSAGE TRANSPORT</text>
+<text x="432" y="537" fill="#052e24" font-family="Arial" font-size="29" font-weight="600" text-anchor="start">Sendblue</text>
+<text x="432" y="568" fill="#50675b" font-family="Arial" font-size="20" font-weight="400" text-anchor="start">Receive + send</text>
+<rect x="764" y="470" width="252" height="112" rx="6" fill="#fbfbf7" stroke="#cad5c7" stroke-width="1.5"/>
+<text x="786" y="497" fill="#50675b" font-family="Courier New" font-size="14" font-weight="600" text-anchor="start" letter-spacing="1.2">API + UVICORN</text>
+<text x="786" y="537" fill="#052e24" font-family="Arial" font-size="29" font-weight="600" text-anchor="start">FastAPI</text>
+<text x="786" y="568" fill="#50675b" font-family="Arial" font-size="20" font-weight="400" text-anchor="start">Verify webhook</text>
+<path d="M890 582V685" fill="none" stroke="#064e3b" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<text x="908" y="637" fill="#50675b" font-family="Arial" font-size="17" font-weight="400" text-anchor="start">save job</text>
+<path d="M536 685V584" fill="none" stroke="#064e3b" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<text x="550" y="643" fill="#50675b" font-family="Arial" font-size="17" font-weight="400" text-anchor="start">reply</text>
+<path d="M464 584V614H190V584" fill="none" stroke="#064e3b" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<text x="64" y="650" fill="#50675b" font-family="Arial" font-size="19" font-weight="400" text-anchor="start">Typing bubbles + read receipts</text>
+<rect x="64" y="685" width="252" height="152" rx="6" fill="#fbfbf7" stroke="#cad5c7" stroke-width="1.5"/>
+<text x="86" y="712" fill="#50675b" font-family="Courier New" font-size="14" font-weight="600" text-anchor="start" letter-spacing="1.2">MODEL</text>
+<text x="86" y="752" fill="#052e24" font-family="Arial" font-size="29" font-weight="600" text-anchor="start">OpenAI</text>
+<text x="86" y="783" fill="#50675b" font-family="Arial" font-size="20" font-weight="400" text-anchor="start">gpt-4.1-mini</text>
+<text x="86" y="810" fill="#50675b" font-family="Arial" font-size="20" font-weight="400" text-anchor="start">Reason + compose</text>
+<rect x="410" y="685" width="252" height="152" rx="6" fill="#064e3b"/>
+<text x="432" y="712" fill="#d2e2cc" font-family="Courier New" font-size="14" font-weight="600" text-anchor="start" letter-spacing="1.2">AGENT WORKER</text>
+<text x="432" y="752" fill="#fbfbf7" font-family="Arial" font-size="29" font-weight="600" text-anchor="start">CrewAI</text>
+<text x="432" y="783" fill="#d2e2cc" font-family="Arial" font-size="20" font-weight="400" text-anchor="start">Use tools + memory</text>
+<text x="432" y="810" fill="#d2e2cc" font-family="Arial" font-size="20" font-weight="400" text-anchor="start">Generate the reply</text>
+<rect x="764" y="685" width="252" height="152" rx="6" fill="#fbfbf7" stroke="#cad5c7" stroke-width="1.5"/>
+<text x="786" y="712" fill="#50675b" font-family="Courier New" font-size="14" font-weight="600" text-anchor="start" letter-spacing="1.2">POSTGRESQL</text>
+<text x="786" y="752" fill="#052e24" font-family="Arial" font-size="29" font-weight="600" text-anchor="start">Supabase</text>
+<text x="786" y="783" fill="#50675b" font-family="Arial" font-size="20" font-weight="400" text-anchor="start">Jobs · notes · history</text>
+<text x="786" y="810" fill="#50675b" font-family="Arial" font-size="20" font-weight="400" text-anchor="start">Saved schedules</text>
+<path d="M318 760H408" fill="none" stroke="#064e3b" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)" marker-start="url(#backArrow)"/>
+<path d="M664 760H762" fill="none" stroke="#064e3b" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)" marker-start="url(#backArrow)"/>
+<text x="356" y="673" fill="#50675b" font-family="Arial" font-size="14" font-weight="400" text-anchor="middle">model calls</text>
+<text x="713" y="673" fill="#50675b" font-family="Arial" font-size="14" font-weight="400" text-anchor="middle">read / write</text>
+<rect x="764" y="871" width="252" height="64" rx="6" fill="#edf3e7" stroke="#cad5c7" stroke-width="1.5"/>
+<text x="786" y="898" fill="#052e24" font-family="Arial" font-size="22" font-weight="600" text-anchor="start">Python scheduler</text>
+<text x="786" y="920" fill="#50675b" font-family="Arial" font-size="17" font-weight="400" text-anchor="start">Queue due reminders</text>
+<path d="M890 871V839" fill="none" stroke="#064e3b" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<text x="64" y="891" fill="#064e3b" font-family="Courier New" font-size="15" font-weight="600" text-anchor="start" letter-spacing="0.7">PER-SENDER WORKSPACE</text>
+<text x="64" y="919" fill="#50675b" font-family="Arial" font-size="20" font-weight="400" text-anchor="start">Separate history, notes, and connections.</text>
+<path d="M536 839V958H290V988" fill="none" stroke="#064e3b" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<path d="M536 958H790V988" fill="none" stroke="#064e3b" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<circle cx="536" cy="958" r="4" fill="#064e3b"/>
+<rect x="64" y="988" width="452" height="144" rx="6" fill="#fbfbf7" stroke="#cad5c7" stroke-width="1.5"/>
+<rect x="564" y="988" width="452" height="144" rx="6" fill="#fbfbf7" stroke="#cad5c7" stroke-width="1.5"/>
+<text x="86" y="1017" fill="#50675b" font-family="Courier New" font-size="15" font-weight="600" text-anchor="start" letter-spacing="0.5">ACCOUNT TOOLS · OPTIONAL</text>
+<text x="86" y="1055" fill="#052e24" font-family="Arial" font-size="30" font-weight="600" text-anchor="start">Composio MCP</text>
+<text x="86" y="1087" fill="#064e3b" font-family="Arial" font-size="23" font-weight="400" text-anchor="start">Gmail + GitHub</text>
+<text x="86" y="1114" fill="#50675b" font-family="Arial" font-size="18" font-weight="400" text-anchor="start">Each user connects their accounts.</text>
+<text x="586" y="1017" fill="#50675b" font-family="Courier New" font-size="15" font-weight="600" text-anchor="start" letter-spacing="0.5">PUBLIC WEB RESEARCH</text>
+<text x="586" y="1055" fill="#052e24" font-family="Arial" font-size="30" font-weight="600" text-anchor="start">Browserbase</text>
+<text x="586" y="1087" fill="#064e3b" font-family="Arial" font-size="23" font-weight="400" text-anchor="start">+ Playwright</text>
+<text x="586" y="1114" fill="#50675b" font-family="Arial" font-size="18" font-weight="400" text-anchor="start">Remote browser sessions for public pages.</text>
+<path d="M64 1160H1016" fill="none" stroke="#cad5c7" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="64" y="1192" fill="#50675b" font-family="Courier New" font-size="15" font-weight="600" text-anchor="start" letter-spacing="1">BUILD + LOCAL DEV</text>
+<text x="64" y="1222" fill="#052e24" font-family="Arial" font-size="23" font-weight="400" text-anchor="start">Python · uv · ngrok · Docker · pytest</text>
+<text x="64" y="1251" fill="#50675b" font-family="Arial" font-size="20" font-weight="400" text-anchor="start">GitHub Actions: CI configured</text>
+<rect x="590" y="1183" width="426" height="76" rx="4" fill="#edf3e7" stroke="#cad5c7" stroke-width="1.5"/>
+<text x="610" y="1212" fill="#052e24" font-family="Arial" font-size="22" font-weight="600" text-anchor="start">Render deployment blueprint</text>
+<text x="610" y="1241" fill="#50675b" font-family="Arial" font-size="19" font-weight="400" text-anchor="start">Prepared · hosting is not live yet</text>
+<text x="64" y="1310" fill="#a05e3b" font-family="Arial" font-size="21" font-weight="400" text-anchor="start">Experimental. Not intended for production use.</text>
+<text x="1016" y="1310" fill="#50675b" font-family="Courier New" font-size="16" font-weight="400" text-anchor="end">crewai_open_instinct</text>
+</svg>

@@ -1,0 +1,74 @@
+# This directory is the repository root.
+# All three services use the same source commit and locked Docker build.
+services:
+  - type: web
+    name: eve-imessage-api
+    runtime: docker
+    plan: 0.5c-512mb
+    region: oregon
+    dockerfilePath: Dockerfile
+    dockerContext: .
+    dockerCommand: serve
+    healthCheckPath: /health
+    numInstances: 1
+    autoDeployTrigger: "off"
+    maxShutdownDelaySeconds: 30
+    envVars:
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SECRET_KEY
+        sync: false
+      - key: SENDBLUE_API_KEY
+        sync: false
+      - key: SENDBLUE_API_SECRET
+        sync: false
+      - key: SENDBLUE_PHONE_NUMBER
+        sync: false
+      - key: SENDBLUE_WEBHOOK_SECRET
+        sync: false
+  - type: worker
+    name: eve-imessage-worker
+    runtime: docker
+    plan: 1c-2g
+    region: oregon
+    dockerfilePath: Dockerfile
+    dockerContext: .
+    dockerCommand: worker
+    numInstances: 1
+    autoDeployTrigger: "off"
+    maxShutdownDelaySeconds: 300
+    envVars:
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SECRET_KEY
+        sync: false
+      - key: SENDBLUE_API_KEY
+        sync: false
+      - key: SENDBLUE_API_SECRET
+        sync: false
+      - key: SENDBLUE_PHONE_NUMBER
+        sync: false
+      - key: SENDBLUE_WEBHOOK_SECRET
+        sync: false
+      - key: BROWSERBASE_API_KEY
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: LLM_MODEL
+        value: openai/gpt-6.1-sol
+  - type: worker
+    name: eve-imessage-scheduler
+    runtime: docker
+    plan: 0.5c-512mb
+    region: oregon
+    dockerfilePath: Dockerfile
+    dockerContext: .
+    dockerCommand: scheduler
+    numInstances: 1
+    autoDeployTrigger: "off"
+    maxShutdownDelaySeconds: 35
+    envVars:
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SECRET_KEY
+        sync: false

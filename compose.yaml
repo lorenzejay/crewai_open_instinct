@@ -1,0 +1,22 @@
+services:
+  api:
+    build: .
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+  worker:
+    build: .
+    command: ["worker"]
+    env_file:
+      - .env
+    restart: unless-stopped
+    stop_grace_period: 300s
+  scheduler:
+    build: .
+    command: ["scheduler"]
+    env_file:
+      - .env
+    restart: unless-stopped
+    stop_grace_period: 35s

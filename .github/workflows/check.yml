@@ -1,0 +1,29 @@
+name: Check agent
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_PASSWORD: isolated-test-password
+          POSTGRES_DB: agent_test
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd pg_isready --health-interval 5s
+          --health-timeout 5s --health-retries 10
+    env:
+      CREWAI_STORAGE_DIR: /tmp/crewai-tests
+      OTEL_SDK_DISABLED: "true"
+      TEST_DATABASE_URL: postgresql://postgres:isolated-test-password@127.0.0.1:5432/agent_test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.11.18"
+          python-version: "3.11"
+      - run: uv sync --locked --group dev
+      - run: uv run pytest -q
+      - run: uv run python scripts/test_database.py
+      - run: docker build -t eve-imessage-check .

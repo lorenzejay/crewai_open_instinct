@@ -1,0 +1,14 @@
+.env
+.env.local
+.venv/
+.pytest_cache/
+*.egg-info/
+__pycache__/
+lib/
+.DS_Store
+**/__pycache__/
+**/.pytest_cache/
+**/.venv/
+**/.runtime/
+.env.*
+!.env.example
