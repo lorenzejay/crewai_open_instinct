@@ -12,7 +12,14 @@ first message creates a private workspace without an app signup.
 > audited or validated for production. The API, worker, scheduler, and public
 > tunnel currently run locally.
 
-[Architecture graphic](docs/media/linkedin/openinstinct-architecture.png) ·
+![OpenInstinct architecture showing iMessage, Sendblue, webhook intake, Supabase, CrewAI, OpenAI, Composio MCP, and Browserbase.](docs/media/linkedin/openinstinct-architecture.png)
+
+Sendblue routes incoming texts to a verified webhook, which saves a job in
+Supabase. The CrewAI worker uses OpenAI and available tools, then delivers
+replies through Sendblue. A Python scheduler queues reminders and briefings
+from saved schedules.
+
+[Download PNG](docs/media/linkedin/openinstinct-architecture.png) ·
 [Editable SVG](docs/media/linkedin/openinstinct-architecture.svg) ·
 [Logo sources](docs/media/linkedin/logo-sources.json)
 
